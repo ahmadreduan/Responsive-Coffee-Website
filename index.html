@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Coffee Website</title>
+    <link rel="stylesheet" href="style.css">
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const faders = document.querySelectorAll(".about, .products, .contact");
+    
+            const appearOptions = {
+                threshold: 0.2, // Trigger when 20% of the section is in view
+                rootMargin: "0px 0px -100px 0px"
+            };
+    
+            const appearOnScroll = new IntersectionObserver(function (entries, appearOnScroll) {
+                entries.forEach(entry => {
+                    if (!entry.isIntersecting) {
+                        return;
+                    } else {
+                        entry.target.classList.add("appear");
+                        appearOnScroll.unobserve(entry.target);
+                    }
+                });
+            }, appearOptions);
+    
+            faders.forEach(fader => {
+                appearOnScroll.observe(fader);
+            });
+        });
+    </script>
+    
+    
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="container">
+            <h1 class="logo">CoffeeHouse</h1>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#products">Products</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+<!-- Hero Section -->
+<section id="home" class="hero">
+    <div class="container hero-content">
+        <div class="hero-text">
+            <h2>Welcome to CoffeeHouse</h2>
+            <p>Experience the rich aroma and flavors of our carefully selected beans.</p>
+            <a href="#products" class="btn">Shop Now</a>
+        </div>
+    </div>
+</section>
+
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <h2>About Us</h2>
+            <p>At CoffeeHouse, we believe in providing the best coffee experience. Our beans are sourced from the finest farms around the world and roasted to perfection to deliver a bold, smooth taste with every sip.</p>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section id="products" class="products">
+        <div class="container">
+            <h2>Our Products</h2>
+            <div class="product-list">
+                <div class="product">
+                    <img src="coffee1.jpg" alt="Espresso">
+                    <h3>Espresso</h3>
+                    <p>A rich and intense coffee experience.</p>
+                </div>
+                <div class="product">
+                    <img src="coffee2.jpg" alt="Latte">
+                    <h3>Latte</h3>
+                    <p>A smooth and creamy delight.</p>
+                </div>
+                <div class="product">
+                    <img src="coffee3.png" alt="Cappuccino">
+                    <h3>Cappuccino</h3>
+                    <p>The perfect blend of coffee and foam.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2>Contact Us</h2>
+            <p>Got questions? We'd love to hear from you!</p>
+            <a href="mailto:info@coffeehouse.com" class="btn">Email Us</a>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 CoffeeHouse. All rights reserved.</p>
+        </div>
+    </footer>
+
+
+
+</
